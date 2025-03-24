@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/fragment_towards_welcome_or_welcome_back_view">
+
+            <!-- Aqui definimos varias vistas de la aplicacion para que esta nos maneje la carga y descarga
+            sin tener que conectar el menu manualente-->
+    <fragment
+        android:id="@+id/fragment_towards_welcome_or_welcome_back_view"
+        android:name="com.evolvlabs.trackthatexpense.Controllers.WelcomeOrWelcomeBackView"
+        android:label="@string/appWelcomeBackMessage"
+        tools:layout="@layout/welcome_or_welcome_back_view">
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_towards_add_expense_view"
+            android:label="@string/appAddYourExpenseTitle"
+            android:name="com.evolvlabs.trackthatexpense.Controllers.AddExpenseView"
+            tools:layout="@layout/add_an_expense_view"/>
+    <fragment
+        android:id="@+id/fragment_towards_review_expenses_view"
+        android:name="com.evolvlabs.trackthatexpense.Controllers.ReviewYourExpensesView"
+        android:label="@string/appReviewYourExpensesTitle"
+        tools:layout="@layout/review_your_expenses_view"/>
+    <fragment
+        android:id="@+id/fragment_towards_configure_your_categories_view"
+        android:name="com.evolvlabs.trackthatexpense.Controllers.ConfigureYourCategoriesView"
+        android:label="@string/appCategoryFormulationTitle"
+        tools:layout="@layout/configure_your_categories_view"/>
+
+
+</navigation>

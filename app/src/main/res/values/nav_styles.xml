@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomNavigationView" parent="Widget.MaterialComponents.NavigationView">
+        <item name="android:background">@color/backgroundTwo</item>
+        <item name="itemBackground">@android:color/transparent</item>
+        <item name="itemTextColor">@color/inputFieldColor</item>
+        <item name="itemIconTint">@color/inputFieldColor</item>
+        <item name="itemVerticalPadding">24dp</item>
+        <item name="itemHorizontalPadding">16sp</item>
+    </style>
+</resources>

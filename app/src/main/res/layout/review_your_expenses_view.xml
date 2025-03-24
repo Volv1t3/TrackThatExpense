@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                           xmlns:app="http://schemas.android.com/apk/res-auto"
+                                           xmlns:tools="http://schemas.android.com/tools"
+                                           android:layout_width="match_parent"
+                                           android:id="@+id/drawerLayout"
+                                           android:layout_height="match_parent"
+                                           android:background="@color/backgroundOne"
+                                           android:orientation="vertical"
+                                           >
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayoutForHeading"
+                android:layoutDirection="ltr"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:background="@color/highlightOne"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintVertical_bias="1.0">
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/menuButtonForNavigation"
+                    android:layout_width="52dp"
+                    android:layout_height="65dp"
+                    app:icon="@drawable/menu_icon"
+                    style="@style/transparentAppButton"
+                    android:gravity="center"
+                    app:iconTint="@color/highlightTwo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginStart="32dp"/>
+            <TextView
+                    android:text="@string/appReviewYourExpensesTitle"
+                    android:hint="@string/appAddYourExpenseTitle"
+                    android:layout_width="310dp"
+                    android:layout_height="122dp"
+                    android:id="@+id/reviewYourExpensesTextView"
+                    android:fontFamily="@font/inter_bold"
+                    android:textSize="50sp"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/textColor"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="1dp"
+                    app:layout_constraintStart_toEndOf="@+id/menuButtonForNavigation"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="24dp" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.0"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Heading, and buttons, and list view for user's expenses!!-->
+        <LinearLayout android:layout_width="390dp"
+                      android:layout_height="0dp"
+                      app:layout_constraintBaseline_toBottomOf="parent"
+                      android:background="@drawable/rounded_corners_for_constrained_layout"
+                      android:id="@+id/linearLayoutForCustomerExpenses"
+                      android:orientation="vertical"
+                      android:layout_marginEnd="11dp"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/constraintLayoutForHeading"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginTop="20dp"
+                      android:layout_marginBottom="20dp"
+                      android:padding="20dp"
+                      android:paddingVertical="10dp"
+                      app:layout_constraintHorizontal_bias="0.0">
+
+            <!--Para esta seccion necesitamos que en linear layout exista un listado en un scrollview de todas ls
+            categorias definidas por el usuario, para esto usamos un icono de + para agregar y un -->
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/textColor"
+                    android:textSize="16sp"
+                    android:text="@string/appSelectYourCategoryComboboxHeader"
+            />
+            <Space android:layout_width="match_parent" android:layout_height="10dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayoutForCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:boxStrokeColor="@android:color/transparent"
+                    app:boxStrokeWidth="0dp"
+                    android:background="@drawable/rounded_corners_for_text_input"
+                    android:layout_marginTop="8dp">
+
+                <AutoCompleteTextView
+                        android:id="@+id/expenseCategoryInReviewYourExpensesViewAutoCompleteTextView"
+                        android:paddingStart="10dp"
+                        android:layout_width="match_parent"
+                        android:hint="@string/appSelectYourCategoryComboboxPlaceholder"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textAlignment="gravity"
+                        android:background="@drawable/rounded_corners_for_text_input"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:inputType="none"
+                        android:editable="false"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Space android:layout_width="match_parent"
+                   android:layout_height="20dp"/>
+            <ScrollView
+                    android:id="@+id/reviewYourExpensesCategoryListViewScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    android:fadeScrollbars="true"
+                    android:scrollbarSize="10dp"
+                    android:scrollIndicators="top"
+                    android:scrollbarTrackVertical="@drawable/custom_scrollbar_track_line"
+                    android:scrollbarThumbVertical="@drawable/custom_scrollbar_track_thumb"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:verticalScrollbarPosition="right">
+                <LinearLayout
+                        android:id="@+id/reviewYourExpensesExpensesLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+            </ScrollView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            android:background="@color/highlightOne"
+            app:itemIconSize="24dp"
+            android:layoutDirection="rtl"
+            android:textAlignment="viewStart"
+            app:itemIconTint="@color/textColor"
+            app:itemTextColor="@color/textColor"
+            app:itemHorizontalPadding="16dp"
+            app:itemVerticalPadding="8dp"
+            app:menu="@menu/nav_menu"
+            />
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="@color/backgroundOne"
+                                                   android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutForHeading"
+            android:layoutDirection="ltr"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="@color/highlightOne"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+                android:text="@string/defineCategoryLabel"
+                android:hint="@string/defineCategoryLabel"
+                android:layout_width="382dp"
+                android:layout_height="131dp" android:id="@+id/defineNewCategoryTextView"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="50sp"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/textColor"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="24dp" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.535" app:layout_constraintVertical_bias="0.444"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout android:layout_width="390dp"
+                  android:layout_height="0dp"
+                  android:id="@+id/linearLayoutForCategoryCreation"
+                  android:background="@drawable/rounded_corners_for_constrained_layout"
+                  android:orientation="vertical"
+                  android:layout_marginEnd="10dp"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/constraintLayoutForHeading"
+                  android:layout_marginBottom="20dp"
+                  android:layout_marginStart="10dp"
+                  android:layout_marginTop="20dp"
+                  android:padding="20dp"
+                  android:paddingVertical="10dp"
+                  app:layout_constraintHorizontal_bias="0.0">
+
+        <!--Heading, botones e input line para category name-->
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:fontFamily="@font/inter_light"
+                  android:textSize="16sp"
+                  android:text="@string/categoryCreationNameHeading"
+        />
+        <Space android:layout_width="match_parent" android:layout_height="10dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/categoryCreationCategoryNameTextInputLayout"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
+                android:background="@drawable/rounded_corners_for_text_input"
+                android:layout_marginTop="8dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="true"
+                app:hintAnimationEnabled="true">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/categoryNameDefinitionTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="10dp"
+                    android:hint="@string/categoryCreationNamePlaceholder"
+                    android:gravity="center_vertical"
+                    android:textAlignment="gravity"
+                    android:background="@drawable/rounded_corners_for_text_input"
+                    android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Space android:layout_width="match_parent" android:layout_height="15dp"/>
+        <!--Heading, botones e input line para category monthly total-->
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:fontFamily="@font/inter_light"
+                  android:textSize="16sp"
+                  android:text="@string/categoryCreationMonthlyTotalHeading"/>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/categoryMaxMonthlyTotalDefinitionTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                android:background="@drawable/rounded_corners_for_text_input"
+                android:layout_marginTop="8dp"
+                app:hintEnabled="true"
+                app:hintAnimationEnabled="true">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/categoryMonthlyTotalDefinitionTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="10dp"
+                    android:hint="@string/categoryCreationMonthlyTotalPlaceholder"
+                    android:gravity="center_vertical"
+                    android:textAlignment="gravity"
+                    android:background="@drawable/rounded_corners_for_text_input"
+                    android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Space android:layout_width="match_parent" android:layout_height="15dp"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_light"
+                android:textSize="16sp"
+                android:text="@string/categoryCreationMaxToleratedExpenseHeading"/>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/categoryCreationMaxExpensePerExpenseTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
+                android:background="@drawable/rounded_corners_for_text_input"
+                android:layout_marginTop="8dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="true"
+                app:hintAnimationEnabled="true">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/categoryMaximumExpenseNumberDecimalValueTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="10dp"
+                    android:hint="@string/categoryCreationMaxToleratedExpensePlaceholder"
+                    android:gravity="center_vertical"
+                    android:textAlignment="gravity"
+                    android:background="@drawable/rounded_corners_for_text_input"
+                    android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom|end"
+                android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cancelCategoryRegistrationMaterialButton"
+                    android:backgroundTint="@color/backgroundTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/inter_light"
+                    android:textColor="@color/inputFieldColor"
+                    android:text="@string/cancelRegistrationLabel"
+                    android:textSize="14sp"
+            />
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/saveNewCategoryMaterialButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/textColor"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/inter_light"
+                    android:textColor="@color/inputFieldColor"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/saveCategoryLabel" android:textSize="14sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

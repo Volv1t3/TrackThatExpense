@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">TrackThatExpense</string>
+    <string name="appWelcomeBackMessage">Welcome Back!</string>
+    <string name="appWelcomeMessage">Welcome!</string>
+    <string name="appYourGoalsMessage">Your goals at a glance</string>
+    <string name="appNoGoalsMessage">You currently do not have any defined goals</string>
+    <string name="appCategoryFormulationTitle">Configure your Categories</string>
+    <string name="appAddYourExpenseTitle">Add an Expense</string>
+    <string name="appSelectYourCategoryComboboxHeader">Select your Expense Category</string>
+    <string name="appSelectYourCategoryComboboxPlaceholder">Food &amp; Drink</string>
+    <string name="appSelectYourExpenseDateDatePickerHeader">Select Expense Date </string>
+    <string name="appSelectYourExpenseDatePickerPlaceholder">April 22, 2004</string>
+    <string name="appSelectYourExpenseAmountHeader">Register your Expense Amount</string>
+    <string name="appSelectYourExpenseAmountPlaceholder">$300</string>
+    <string name="cancelRegistrationLabel">Cancel Registration</string>
+    <string name="saveExpenseLabel">Save Expense</string>
+    <string name="saveCategoryLabel">Save Category</string>
+    <string name="defineCategoryLabel">Define a New Category</string>
+    <string name="categoryCreationNameHeading">Give your Category a Name</string>
+    <string name="categoryCreationNamePlaceholder">Groceries</string>
+    <string name="categoryCreationMonthlyTotalHeading">Give Your Category a Monthly Total</string>
+    <string name="categoryCreationMonthlyTotalPlaceholder">$1000</string>
+    <string name="categoryCreationMaxToleratedExpenseHeading">Give your Category a Maximum Expense Value</string>
+    <string name="categoryCreationMaxToleratedExpensePlaceholder">$300</string>
+    <string name="appReviewYourExpensesTitle">Review your Expenses</string>
+    <string name="goHomeMenuItemName">Go Home</string>
+    <string name="configureYourCategoriesMenuItemName">Configure Your Categories</string>
+    <string name="addAnExpenseMenuItemName">Add an Expense</string>
+    <string name="inDepthReviewMenuItem">In-depth Expense Review</string>
+    <string name="review_your_categories">Review your Categories</string>
+
+</resources>

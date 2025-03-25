@@ -374,7 +374,6 @@ public class AddExpenseView extends Fragment {
                 if (isCategorySelected){
                     //? 1.A Revisamos si existe una fecha seleccionada
                     if (isDateSelected){
-                        //? 2.A Revisamos si hay una cantidad definida
                         if (isAmountEntered){
                             //? 3.A Tomamos los valores de todos lo campos
                             String amount = addAnExpenseViewRegisterExpenseAmountTextInputEditText
@@ -393,36 +392,34 @@ public class AddExpenseView extends Fragment {
                                 // de gato por gasto en la categori
                                 createAndShowToast(getContext(),
                                                    "Amount must be less than or equal to " +
-                                                   expenseCategory.getExpenseCategoryMaxPerExpenseValue(),
+                                                           expenseCategory.getExpenseCategoryMaxPerExpenseValue(),
                                                    R.layout.custom_toast_for_errors);
                             }
-                            //? 4.A Validamos que la cantidad de dinero corresponda a un valor
-                            // menor que la cantidad de ingreso de la categoria seleccionada
-                            else {
-                                //? 5.A Creamos el gasto
-                                Expense expense = new Expense(expenseCategory.getExpenseCategoryName(),
-                                                              selectedDate,
-                                                              amountBigDecimal);
-                                //? 6.A Guardamos el gasto en el Singleton
-                                ApplicationDataPOJO.getApplicationDataPOJOInstance()
-                                        .addExpenseIntoExpenseMap(expense);
-                                //? 7.A Limpiamos los campos
-                                clearFields();
-                                //? 8.A Limpiams toda marca focused para poder poner las hints de
-                                // nuevo
-                                positionHintsAgain();
-                                //? 8.A Mostramos un tip al usuario
-                               createAndShowToast(getContext(),
-                                                  "Expense successfully added",
-                                                  R.layout.custom_toast_for_success);
+                            else if (Date.from(Instant.now()).compareTo(selectedDate) < 0){
+                                //? 3.B Enviamos un Tip al usario informandole que tiene que seleccionar un
+                                // componente de la lista
+                                createAndShowToast(getContext(),
+                                                   "A Date in the future must not be entered " +
+                                                           "when " +
+                                                           "attempting to insert an expense.", R.layout.custom_toast_for_errors);
+                            } else {
+                                    //? 5.A Creamos el gasto
+                                    Expense expense = new Expense(expenseCategory.getExpenseCategoryName(),
+                                                                  selectedDate,
+                                                                  amountBigDecimal);
+                                    //? 6.A Guardamos el gasto en el Singleton
+                                    ApplicationDataPOJO.getApplicationDataPOJOInstance()
+                                            .addExpenseIntoExpenseMap(expense);
+                                    //? 7.A Limpiamos los campos
+                                    clearFields();
+                                    //? 8.A Limpiams toda marca focused para poder poner las hints de
+                                    // nuevo
+                                    positionHintsAgain();
+                                    //? 8.A Mostramos un tip al usuario
+                                    createAndShowToast(getContext(),
+                                                       "Expense successfully added",
+                                                       R.layout.custom_toast_for_success);
                             }
-                        } else if (Date.from(Instant.now()).compareTo(selectedDate) < 0){
-                            //? 3.B Enviamos un Tip al usario informandole que tiene que seleccionar un
-                            // componente de la lista
-                            createAndShowToast(getContext(),
-                                               "A Date in the future must not be entered " +
-                                                       "when " +
-                            "attempting to insert an expense.", R.layout.custom_toast_for_errors);
                         }
                         else {
                             //? 3.B Enviamos un Tip al usario informandole que tiene que
@@ -430,8 +427,9 @@ public class AddExpenseView extends Fragment {
                             // componente de la lista
                             createAndShowToast(getContext(),
                                                "An Amount must be entered before attempting " +
-                            "to insert an expense.", R.layout.custom_toast_for_errors);
+                                                       "to insert an expense.", R.layout.custom_toast_for_errors);
                         }
+                        //? 2.A Revisamos si hay una cantidad definida
                     }
                     else {
                         //? 2.B Enviamos un Tip al usario informandole que tiene que seleccionar un

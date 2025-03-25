@@ -198,6 +198,8 @@ public class WelcomeOrWelcomeBackView extends Fragment {
                 textView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
                 textView.setGravity(Gravity.TOP);
                 textView.setText(R.string.appWelcomeBackMessage);
+                textView.setWidth(0);
+                textView.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
                 //? Modificamos programaticamente el banner de nuestra aplicacion
                 textView = (TextView)
                         this.getView().findViewById(R.id.welcomeOrWelcomeBackViewCurrentGoalsTextView);
